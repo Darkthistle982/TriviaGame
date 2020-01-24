@@ -92,7 +92,7 @@ $("#start-button").on("click", function () {
 
 
 
-// reset();
+reset();
 
 
 
