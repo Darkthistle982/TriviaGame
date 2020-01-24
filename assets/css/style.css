@@ -15,6 +15,11 @@ body {
     font-size: xx-large;
 }
 
+#time-remaining {
+    font-size: x-large;
+    font-family: 'Nosifer', cursive;
+}
+
 #question {
     font-family: 'Creepster', cursive;
 }
