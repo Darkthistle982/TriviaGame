@@ -73,7 +73,7 @@ $(document).ready(function () {
     var lose = 0;
     var unanswered = 0;
     var time = 30;
-    var questionIndex = 0;
+
 //function to reset game
 function reset() {
     win = 0;
@@ -91,11 +91,14 @@ $("#start-button").on("click", function () {
 
 //function to show questions
 function showQuestions() {
-    if (questionIndex <= (questions.length - 1)) {
-        $("#question").text(questions[questionIndex].question);
-    }
+    $("#question").text(questions.one.question);
+    for (let i = 0; i < 4; i++) {
+        $("#answers").append("<li>" + questions.one.answers[i]);
 
-};
+    }
+}
+
+
 
 
 
