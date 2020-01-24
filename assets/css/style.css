@@ -14,3 +14,13 @@ body {
     font-family: 'Creepster', cursive;
     font-size: xx-large;
 }
+
+#question {
+    font-family: 'Creepster', cursive;
+}
+
+#answers {
+    font-weight: bold;
+    font-size: larger;
+    color: red;
+}
