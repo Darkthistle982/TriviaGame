@@ -1,3 +1,7 @@
 body {
     background-image: url("../images/background_image.jpg");
 }
+
+#quiz-box {
+    background-image: url("../images/container_background.jpg");
+}
