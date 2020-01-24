@@ -5,3 +5,7 @@ body {
 #quiz-box {
     background-image: url("../images/container_background.jpg");
 }
+
+#title {
+    font-family: 'Nosifer', cursive;
+}
