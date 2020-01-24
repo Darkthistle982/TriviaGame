@@ -73,7 +73,7 @@ $(document).ready(function () {
     var lose = 0;
     var unanswered = 0;
     var time = 30;
-
+    var questionIndex = 0;
 //function to reset game
 function reset() {
     win = 0;
@@ -85,14 +85,18 @@ function reset() {
 
 //function to start game on button click
 $("#start-button").on("click", function () {
-    $("#start-button").hide("fast");
-    
-})
+    $("#start-button").hide("fast"); 
+    showQuestions();
+});
 
+//function to show questions
+function showQuestions() {
+    if (questionIndex <= (questions.length - 1)) {
+        $("#question").text(questions[questionIndex].question);
+    }
 
+};
 
-
-reset();
 
 
 
