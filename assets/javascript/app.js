@@ -69,9 +69,30 @@ $(document).ready(function () {
         },
     };   
 
+    var win = 0;
+    var lose = 0;
+    var unanswered = 0;
+    var time = 30;
+
 //function to reset game
+function reset() {
+    win = 0;
+    lose = 0;
+    unanswered = 0;
+    time = 30;
+    $("#start-button").show();
+}
+
+//function to start game on button click
+$("#start-button").on("click", function () {
+    $("#start-button").hide("fast");
+    
+})
 
 
+
+
+// reset();
 
 
 
