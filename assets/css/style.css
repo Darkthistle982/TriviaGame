@@ -10,7 +10,7 @@ body {
     font-family: 'Nosifer', cursive;
 }
 
-#start-button {
+#start-button, #start-here {
     font-family: 'Creepster', cursive;
     font-size: xx-large;
 }

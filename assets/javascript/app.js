@@ -85,7 +85,8 @@ $(document).ready(function () {
 
     //function to start game on button click
     $("#start-button").on("click", function () {
-        $("#start-button").hide("fast");
+        $("#start-button").hide("slow");
+        $("#start-here").hide("slow");
         Object.keys(questions).forEach(function(key){
             showQuestion(questions[key]);
         });
