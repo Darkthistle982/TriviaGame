@@ -81,7 +81,7 @@ $(document).ready(function () {
         unanswered = 0;
         time = 30;
         $("#start-button").show();
-        $("#start-here").show();
+        $("#start-here").show()
     }
 
     //function to start game on button click
@@ -90,26 +90,26 @@ $(document).ready(function () {
         $("#start-here").hide("slow");
         Object.keys(questions).forEach(function(key){
             showQuestion(questions[key]);
+            // timer();
         });
     });
 
     //function to show questions
     function showQuestion(question) {
-        var newDiv = $("<div>");
-        $("#question").text(question.question);
-        timer();
+        var newQuestionDiv = $("<div>");
+        $("#question").append(question.question);
         for (let i = 0; i < 4; i++) {
             $("#answers").append("<li>" + question.answers[i]);
         }
     }
 
     //function to run the question timer
-    function timer() {
-        intervalId = setInterval(function () {
-            time--;
-        }, 30 * 1000);
-        $("#time-remaining").text("Time Remaining: " + time);
-    }
+    // function timer() {
+    //     intervalId = setInterval(function () {
+    //         time--;
+    //     }, 30 * 1000);
+    //     $("#time-remaining").html("Time Remaining: " + time);
+    // }
     
     
     // console.log(intervalId);
