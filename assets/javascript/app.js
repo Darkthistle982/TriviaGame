@@ -81,6 +81,7 @@ $(document).ready(function () {
         unanswered = 0;
         time = 30;
         $("#start-button").show();
+        $("#start-here").show();
     }
 
     //function to start game on button click
@@ -96,7 +97,7 @@ $(document).ready(function () {
     function showQuestion(question) {
         var newDiv = $("<div>");
         $("#question").text(question.question);
-        // timer();
+        timer();
         for (let i = 0; i < 4; i++) {
             $("#answers").append("<li>" + question.answers[i]);
         }
@@ -104,14 +105,14 @@ $(document).ready(function () {
 
     //function to run the question timer
     function timer() {
-        setInterval(function () {
+        intervalId = setInterval(function () {
             time--;
         }, 30 * 1000);
-        $("#time-remaining").html("Time Remaining: " + time);
+        $("#time-remaining").text("Time Remaining: " + time);
     }
-
-
-
+    
+    
+    // console.log(intervalId);
 
 
 
