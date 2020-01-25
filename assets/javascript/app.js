@@ -49,7 +49,7 @@ $(document).ready(function () {
         },
         ten: {
             question: "In the 2008 horror anthology, Trick 'r Treat, the antagonist, Sam, punishes those who don't follow the rules of Halloween. Which one is NOT a rule of Halloween?",
-            answers: ["Never prank a decorated home","Always give candy to trick-or-treaters", "Respect the dead", "Always wear a costume"],
+            answers: ["Never prank a decorated home", "Always give candy to trick-or-treaters", "Respect the dead", "Always wear a costume"],
             correct: "Never prank a decorated home"
         },
         eleven: {
@@ -67,54 +67,56 @@ $(document).ready(function () {
             answers: ["Psycho", "Night of the Living Dead", "The Cabinet of Dr. Caligari", "The Hunchback of Notre Dame"],
             correct: "The Cabinet of Dr. Caligari"
         },
-    };   
+    };
 
     var win = 0;
     var lose = 0;
     var unanswered = 0;
     var time = 30;
-    
-//function to reset game
-function reset() {
-    win = 0;
-    lose = 0;
-    unanswered = 0;
-    time = 30;
-    $("#start-button").show();
-}
 
-//function to start game on button click
-$("#start-button").on("click", function () {
-    $("#start-button").hide("fast"); 
-    showQuestions();
-});
-
-//function to show questions
-function showQuestions() {
-    $("#question").text(questions.one.question);
-    timer();
-    for (let i = 0; i < 4; i++) {
-        $("#answers").append("<li>" + questions.one.answers[i]);
+    //function to reset game
+    function reset() {
+        win = 0;
+        lose = 0;
+        unanswered = 0;
+        time = 30;
+        $("#start-button").show();
     }
-}
 
-//function to run the question timer
-function timer() {
-    time--;
-    $("#time-remaining").html("Time Remaining: " + time);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //function to start game on button click
+    $("#start-button").on("click", function () {
+        $("#start-button").hide("fast");
+        showQuestions();
     });
+
+    //function to show questions
+    function showQuestions() {
+        $("#question").text(questions.one.question);
+        timer();
+        for (let i = 0; i < 4; i++) {
+            $("#answers").append("<li>" + questions.one.answers[i]);
+        }
+    }
+
+    //function to run the question timer
+    function timer() {
+        setInterval(function () {
+            time--;
+        }, 30 * 1000);
+        $("#time-remaining").html("Time Remaining: " + time);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
