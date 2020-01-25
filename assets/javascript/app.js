@@ -86,15 +86,18 @@ $(document).ready(function () {
     //function to start game on button click
     $("#start-button").on("click", function () {
         $("#start-button").hide("fast");
-        showQuestions();
+        Object.keys(questions).forEach(function(key){
+            showQuestion(questions[key]);
+        });
     });
 
     //function to show questions
-    function showQuestions() {
-        $("#question").text(questions.one.question);
-        timer();
+    function showQuestion(question) {
+        var newDiv = $("<div>");
+        $("#question").text(question.question);
+        // timer();
         for (let i = 0; i < 4; i++) {
-            $("#answers").append("<li>" + questions.one.answers[i]);
+            $("#answers").append("<li>" + question.answers[i]);
         }
     }
 
