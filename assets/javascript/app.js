@@ -88,7 +88,6 @@ $(document).ready(function () {
     //function to start game on button click
     $("#start-button").on("click", function () {
         runTimer();
-        checkAnswers();
         $("#start-button").hide("slow");
         $("#start-here").hide("slow");
         // displayQuestionOne()
@@ -114,46 +113,45 @@ $(document).ready(function () {
     //     for (i = 0; i < 4; i++) {
     //         $("#answers").append("<li>" + questions.one.answers[i]);
     //     };
-    
+
     //      $("#answers").on("click", function () {
     //       var selected = $(this).text();
     //       console.log(selected);
     //      });
     // };
 
-
+    //function to check answer and add onclick to answers
+    function checkAnswers() {
+        $("<button>").on("click", function () {
+            console.log("clicked");
+    });
+};
+    
     //function to show questions
     function showQuestion(question) {
         var newQuestionDiv = $("<div class='display-4'>");
         $("#question-block").append(newQuestionDiv);
         $(newQuestionDiv).text(question.question);
         for (let i = 0; i < 4; i++) {
-            $("#question-block").append("<li class='btn btn-danger btn-lg m-1'>" + question.answers[i] + "</li>");
+            $("#question-block").append("<button class='answer-button btn btn-danger btn-lg m-1'>" + question.answers[i] + "</button>");
         }
     }
 
     //function to run the question timer
     function countdown() {
-            time--;
-            $("#time-remaining").text("Time Remaining: " + time);
-            if (time === 0) {
-                console.log("Time up");
-                unanswered++;
-                stop();
-            }
+        time--;
+        $("#time-remaining").text("Time Remaining: " + time);
+        if (time === 0) {
+            console.log("Time up");
+            unanswered++;
+            stop();
         }
-
-    //function to check answer and add onclick to answers
-    function checkAnswers() {
-        $(".btn").on("click", function(){
-            var selected = $(this).text();
-            console.log(selected);
-        })
     }
 
 
 
 
+checkAnswers();
 
 
 
