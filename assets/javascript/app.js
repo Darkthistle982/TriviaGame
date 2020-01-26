@@ -74,7 +74,7 @@ $(document).ready(function () {
     var unanswered = 0;
     var time = 30;
     var intervalId;
-    
+
     //function to reset game
     function reset() {
         win = 0;
@@ -89,30 +89,35 @@ $(document).ready(function () {
     $("#start-button").on("click", function () {
         $("#start-button").hide("slow");
         $("#start-here").hide("slow");
-        Object.keys(questions).forEach(function(key){
+        runTimer ();
+        Object.keys(questions).forEach(function (key) {
             showQuestion(questions[key]);
-            timer();
         });
     });
+
+    function runTimer () {
+        intervalId = setInterval(countdown, 1000);
+    };
 
     //function to show questions
     function showQuestion(question) {
         var newQuestionDiv = $("<div>");
         $("#question").append(newQuestionDiv);
         $(newQuestionDiv).text(question.question);
-        // for (let i = 0; i < 4; i++) {
-        //     $("#answers").append("<li>" + question.answers[i]);
-        // }
+        for (let i = 0; i < 4; i++) {
+            $("#answers").append("<li>" + question.answers[i]);
+        }
     }
 
     //function to run the question timer
-    function timer() {
-        intervalId = setInterval(function () {
-            time--;
-        }, 30 * 1000);
-        $("#time-remaining").html("Time Remaining: " + time);
+    function countdown() {
+        time--;
+        $("#time-remaining").text("Time Remaining: " + time);
+        if (time === 0) {
+            console.log("Time up");
+        }
     }
-    
+
 
 
 
