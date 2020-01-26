@@ -89,39 +89,60 @@ $(document).ready(function () {
     $("#start-button").on("click", function () {
         $("#start-button").hide("slow");
         $("#start-here").hide("slow");
-        runTimer ();
-        Object.keys(questions).forEach(function (key) {
-            showQuestion(questions[key]);
-        });
+        displayQuestionOne()
+        // Object.keys(questions).forEach(function (key) {
+        //     showQuestion(questions[key]);
+        // });
+
     });
 
-    function runTimer () {
+    function runTimer() {
         intervalId = setInterval(countdown, 1000);
     };
 
-    function stop () {
+    function stop() {
         clearInterval(intervalId);
     }
 
+    //show question one
+    function displayQuestionOne() {
+        runTimer();
+        $("#question").text(questions.one.question);
+
+        for (i = 0; i < 4; i++) {
+            $("#answers").append("<li>" + questions.one.answers[i]);
+        };
+    
+         $("#answers").on("click", function () {
+          var selected = $(this).text();
+          console.log(selected);
+         });
+    };
+
+
     //function to show questions
-    function showQuestion(question) {
-        var newQuestionDiv = $("<div>");
-        $("#question").append(newQuestionDiv);
-        $(newQuestionDiv).text(question.question);
-        for (let i = 0; i < 4; i++) {
-            $("#answers").append("<li>" + question.answers[i]);
-        }
-    }
+    // function showQuestion(question) {
+    //     var newQuestionDiv = $("<div>");
+    //     $("#question").append(newQuestionDiv);
+    //     $(newQuestionDiv).text(question.question);
+    //     for (let i = 0; i < 4; i++) {
+    //         $("#answers").append("<li>" + question.answers[i] + "</li>");
+    //     }
+    // }
 
     //function to run the question timer
     function countdown() {
-        time--;
-        $("#time-remaining").text("Time Remaining: " + time);
-        if (time === 0) {
-            console.log("Time up");
-            stop();
+            time--;
+            $("#time-remaining").text("Time Remaining: " + time);
+            if (time === 0) {
+                console.log("Time up");
+                unanswered++;
+                stop();
+            }
         }
-    }
+
+    //function to check answer and add onclick to answers
+    //need to figure out display issue. right now it displays every answer
 
 
 
