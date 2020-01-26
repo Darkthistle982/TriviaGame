@@ -90,29 +90,29 @@ $(document).ready(function () {
         $("#start-here").hide("slow");
         Object.keys(questions).forEach(function(key){
             showQuestion(questions[key]);
-            // timer();
+            timer();
         });
     });
 
     //function to show questions
     function showQuestion(question) {
         var newQuestionDiv = $("<div>");
-        $("#question").append(question.question);
-        for (let i = 0; i < 4; i++) {
-            $("#answers").append("<li>" + question.answers[i]);
-        }
+        $("#question").append(newQuestionDiv);
+        $(newQuestionDiv).text(question.question);
+        // for (let i = 0; i < 4; i++) {
+        //     $("#answers").append("<li>" + question.answers[i]);
+        // }
     }
 
     //function to run the question timer
-    // function timer() {
-    //     intervalId = setInterval(function () {
-    //         time--;
-    //     }, 30 * 1000);
-    //     $("#time-remaining").html("Time Remaining: " + time);
-    // }
+    function timer() {
+        intervalId = setInterval(function () {
+            time--;
+        }, 30 * 1000);
+        $("#time-remaining").html("Time Remaining: " + time);
+    }
     
-    
-    // console.log(intervalId);
+
 
 
 
