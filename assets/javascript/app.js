@@ -72,7 +72,7 @@ $(document).ready(function () {
     var win = 0;
     var lose = 0;
     var unanswered = 0;
-    var time = 30;
+    var time = 60;
     var intervalId;
 
     //function to reset game
@@ -80,23 +80,25 @@ $(document).ready(function () {
         win = 0;
         lose = 0;
         unanswered = 0;
-        time = 30;
+        time = 60;
         $("#start-button").show();
         $("#start-here").show()
     }
 
     //function to start game on button click
     $("#start-button").on("click", function () {
+        runTimer();
+        checkAnswers();
         $("#start-button").hide("slow");
         $("#start-here").hide("slow");
-        displayQuestionOne()
-        // Object.keys(questions).forEach(function (key) {
-        //     showQuestion(questions[key]);
-        // });
+        // displayQuestionOne()
+        Object.keys(questions).forEach(function (key) {
+            showQuestion(questions[key]);
+        });
 
     });
 
-    function runTimer() {
+    function runTimer(callback) {
         intervalId = setInterval(countdown, 1000);
     };
 
@@ -105,30 +107,30 @@ $(document).ready(function () {
     }
 
     //show question one
-    function displayQuestionOne() {
-        runTimer();
-        $("#question").text(questions.one.question);
+    // function displayQuestionOne() {
+    //     runTimer();
+    //     $("#question").text(questions.one.question);
 
-        for (i = 0; i < 4; i++) {
-            $("#answers").append("<li>" + questions.one.answers[i]);
-        };
+    //     for (i = 0; i < 4; i++) {
+    //         $("#answers").append("<li>" + questions.one.answers[i]);
+    //     };
     
-         $("#answers").on("click", function () {
-          var selected = $(this).text();
-          console.log(selected);
-         });
-    };
+    //      $("#answers").on("click", function () {
+    //       var selected = $(this).text();
+    //       console.log(selected);
+    //      });
+    // };
 
 
     //function to show questions
-    // function showQuestion(question) {
-    //     var newQuestionDiv = $("<div>");
-    //     $("#question").append(newQuestionDiv);
-    //     $(newQuestionDiv).text(question.question);
-    //     for (let i = 0; i < 4; i++) {
-    //         $("#answers").append("<li>" + question.answers[i] + "</li>");
-    //     }
-    // }
+    function showQuestion(question) {
+        var newQuestionDiv = $("<div class='display-4'>");
+        $("#question-block").append(newQuestionDiv);
+        $(newQuestionDiv).text(question.question);
+        for (let i = 0; i < 4; i++) {
+            $("#question-block").append("<li class='btn btn-danger btn-lg m-1'>" + question.answers[i] + "</li>");
+        }
+    }
 
     //function to run the question timer
     function countdown() {
@@ -142,8 +144,12 @@ $(document).ready(function () {
         }
 
     //function to check answer and add onclick to answers
-    //need to figure out display issue. right now it displays every answer
-
+    function checkAnswers() {
+        $(".btn").on("click", function(){
+            var selected = $(this).text();
+            console.log(selected);
+        })
+    }
 
 
 
