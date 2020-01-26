@@ -73,7 +73,8 @@ $(document).ready(function () {
     var lose = 0;
     var unanswered = 0;
     var time = 30;
-
+    var intervalId;
+    
     //function to reset game
     function reset() {
         win = 0;
