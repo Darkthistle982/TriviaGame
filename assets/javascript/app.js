@@ -99,6 +99,10 @@ $(document).ready(function () {
         intervalId = setInterval(countdown, 1000);
     };
 
+    function stop () {
+        clearInterval(intervalId);
+    }
+
     //function to show questions
     function showQuestion(question) {
         var newQuestionDiv = $("<div>");
@@ -115,6 +119,7 @@ $(document).ready(function () {
         $("#time-remaining").text("Time Remaining: " + time);
         if (time === 0) {
             console.log("Time up");
+            stop();
         }
     }
 
