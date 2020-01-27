@@ -86,22 +86,17 @@ $(document).ready(function () {
     var key = keys[n];
     var n = 0;
 
-    //function to start game on button click
-    $("#start-button").on("click", function () {
-        $("#start-button").hide("slow");
-        $("#start-here").hide("slow");
-        });
-
+    
     //function to setup and restart game
     function reset() {
+        $("#start-button").hide("slow");
+        $("#start-here").hide("slow");
         win = 0;
         lose = 0;
         unanswered = 0;
         n = 0;
         key = keys[n];
-        $("#start-button").show();
-        $("#start-here").show();
-
+        
         var reset = function () {
             time = 30;
             $(".rightAns").empty();
@@ -116,12 +111,12 @@ $(document).ready(function () {
         //function to show questions
         function showQuestion() {
             $(".question display-4").html(questions[key].question);
-
+            
             for (var i = 0; i < questions[key].answers.length; i++) {
-                $(".answers").append("<button class='answer btn btn-danger btn-lg m-1'>" +questions[key].answers[i] + "</button>");
+                $(".answers").append("<button class='answer btn btn-danger btn-lg m-1'>" + questions[key].answers[i] + "</button>");
             }
-
-            $(".answers button").on("click", function(){
+            
+            $(".answers button").on("click", function () {
                 var selected = $(this).text();
                 //if then to check question correctness
                 if (selected === questions[key].correct) {
@@ -145,7 +140,7 @@ $(document).ready(function () {
                 }
                 n++;
                 key = keys[n];
-
+                
                 //checking to see if there are more questions left
                 if (checkForLast()) {
                     finalScore();
@@ -158,14 +153,14 @@ $(document).ready(function () {
         }
         
         showQuestion();
-
-        var counter = setInterval (count, 500);
-
+        
+        var counter = setInterval(count, 500);
+        
         //show time remaining for each question
         function count() {
             time--;
             $(".countdown h3").html("Time Remaining: " + time);
-
+            
             if (time < 1) {
                 clearInterval(counter);
                 $(timerDiv).remove();
@@ -186,15 +181,30 @@ $(document).ready(function () {
                 }
             }
         }
-
+        
         function checkForLast() {
             if (key === undefined) {
                 return true;
             }
             return false;
         }
-
+        
         //timer for the message after you choose your answer
         function countReset() {
             counter = setInterval(count, 500);
         }
+        
+        //showthe final score screen
+        function finalScore() {
+            $(".rightAns").remove();
+            $("#question-block").prepend("<h2>Unanswered: " + unanswered + "</h2>");
+            $("#question-block").prepend("<h2>Incorrect: " + lose + "</h2>");
+            $("#question-block").prepend("<h2>Correct: " + win + "</h2>");
+        }
+    };
+    
+    //function to start game on button click
+    $("#start-button").on("click", ".start", reset);
+    // $("#start-button").show();
+    // $("#start-here").show();
+});
