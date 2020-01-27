@@ -54,7 +54,7 @@ $(document).ready(function () {
         },
         eleven: {
             question: "In the 1931 monster movie classic, Dracula, Bela Lugosi portrayed his most famous role of his lifetime. What was the name of the insect eating toady who does the vampires bidding?",
-            answers: ["John", "Dr. Seward", "Matin", "Renfield"],
+            answers: ["John", "Dr. Seward", "Martin", "Renfield"],
             correct: "Renfield"
         },
         twelve: {
@@ -94,6 +94,7 @@ $(document).ready(function () {
         unanswered = 0;
         n = 0;
         key = keys[n];
+        $("#question-block").empty();
 
         var reset = function () {
             time = 30;
