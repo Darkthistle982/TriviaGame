@@ -172,8 +172,21 @@ $(document).ready(function () {
                 $(questionDiv).remove();
                 $(".answers button").remove();
                 $("#correct-answer").append(rightDiv);
+                $(".rightAns").html("You took too long! The correct answer was: " + questions[key].correct);
+                unanswered++;
+                n++;
+                key = keys[n];
+
+                if (checkForLast()) {
+                    finalScore();
+                } else {
+                    setTimeout(countReset, 5 * 1000);
+                    setTimeout(reset, 5 * 1000);
+                    setTimeout(showQuestion, 5 * 1000);
+                }
             }
         }
+        
         //     var newQuestionDiv = $("<div class='display-4'>");
         //     $("#question-block").append(newQuestionDiv);
         //     $(newQuestionDiv).text(question.question);
