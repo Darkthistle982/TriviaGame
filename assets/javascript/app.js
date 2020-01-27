@@ -132,6 +132,7 @@ $(document).ready(function () {
                     $(".rightAns").text("That's Correct!!");
                     $("#image").html('<img src = ".assets/images/' + imgArray[currentQuestion] + '" width = "400px">');
                     win++;
+                    currentQuestion++;
                 } else {
                     clearInterval(counter);
                     $(timerDiv).remove();
@@ -140,7 +141,9 @@ $(document).ready(function () {
                     $(answerDiv).remove();
                     $("#correct-answer").append(rightDiv);
                     $(".rightAns").text("Nope! The correct answer was: " + questions[key].correct);
+                    $("#image").html('<img src = ".assets/images/' + imgArray[currentQuestion] + '" width = "400px">');
                     lose++;
+                    currentQuestion++;
                 }
                 n++;
                 key = keys[n];
@@ -201,6 +204,7 @@ $(document).ready(function () {
         //showthe final score screen
         function finalScore() {
             $(".rightAns").remove();
+            $("#image").empty();
             $("#question-block").prepend("<h2>Unanswered: " + unanswered + "</h2>");
             $("#question-block").prepend("<h2>Incorrect: " + lose + "</h2>");
             $("#question-block").prepend("<h2>Correct: " + win + "</h2>");
