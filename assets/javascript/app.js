@@ -76,7 +76,7 @@ $(document).ready(function () {
     var intervalId;
 
     //set up divs to contain our info
-    var rightDiv = $("<div class='randAns'></div>");
+    var rightDiv = $("<div class='rightAns'></div>");
     var timerDiv = $("<div class='countdown'><h3></h3></div>");
     var questionDiv = $("<div class='question display-4'></div>");
     var answerDiv = $("<div class='answers'></div>");
@@ -85,6 +85,12 @@ $(document).ready(function () {
     var keys = Object.keys(questions);
     var key = keys[n];
     var n = 0;
+
+    //function to start game on button click
+    $("#start-button").on("click", function () {
+        $("#start-button").hide("slow");
+        $("#start-here").hide("slow");
+        });
 
     //function to setup and restart game
     function reset() {
@@ -108,13 +114,66 @@ $(document).ready(function () {
         reset();
 
         //function to show questions
-        function showQuestion(question) {
+        function showQuestion() {
             $(".question display-4").html(questions[key].question);
 
             for (var i = 0; i < questions[key].answers.length; i++) {
                 $(".answers").append("<button class='answer btn btn-danger btn-lg m-1'>" +questions[key].answers[i] + "</button>");
             }
 
+            $(".answers button").on("click", function(){
+                var selected = $(this).text();
+                //if then to check question correctness
+                if (selected === questions[key].correct) {
+                    clearInterval(counter);
+                    $(timerDiv).remove();
+                    $(questionDiv).remove();
+                    $(".answers button").remove();
+                    $(answerDiv).remove();
+                    $("#correct-answer").append(rightDiv);
+                    $(".rightAns").text("That's Correct!!");
+                    win++;
+                } else {
+                    clearInterval(counter);
+                    $(timerDiv).remove();
+                    $(questionDiv).remove();
+                    $(".answers button").remove();
+                    $(answerDiv).remove();
+                    $("#correct-answer").append(rightDiv);
+                    $(".rightAns").text("Nope! The correct answer was: " + questions[key].correct);
+                    lose++;
+                }
+                n++;
+                key = keys[n];
+
+                //checking to see if there are more questions left
+                if (checkForLast()) {
+                    finalScore();
+                } else {
+                    setTimeout(countReset, 5 * 1000);
+                    setTimeout(reset, 5 * 1000);
+                    setTimeout(showQuestion, 5 * 1000);
+                }
+            });
+        }
+        
+        showQuestion();
+
+        var counter = setInterval (count, 500);
+
+        //show time remaining for each question
+        function count() {
+            time--;
+            $(".countdown h3").html("Time Remaining: " + time);
+
+            if (time < 1) {
+                clearInterval(counter);
+                $(timerDiv).remove();
+                $(questionDiv).remove();
+                $(".answers button").remove();
+                $("#correct-answer").append(rightDiv);
+            }
+        }
         //     var newQuestionDiv = $("<div class='display-4'>");
         //     $("#question-block").append(newQuestionDiv);
         //     $(newQuestionDiv).text(question.question);
@@ -125,54 +184,45 @@ $(document).ready(function () {
         // }
 
 
-    }
-
-    //function to start game on button click
-    $("#start-button").on("click", function () {
-        runTimer();
-        $("#start-button").hide("slow");
-        $("#start-here").hide("slow");
-        // displayQuestionOne()
-        Object.keys(questions).forEach(function (key) {
-            showQuestion(questions[key]);
-        });
-
-    });
-
-    function runTimer() {
-        intervalId = setInterval(countdown, 1000);
-    };
-
-    function stop() {
-        clearInterval(intervalId);
-    }
-
-    //function to check answer and add onclick to answers
-    function buttonClick() {
-        $(".answer-button").on("click", function () {
-
-            checkAnswers();
-        });
-    };
+    // }
 
 
-    //function to run the question timer
-    function countdown() {
-        time--;
-        $("#time-remaining").text("Time Remaining: " + time);
-        if (time === 0) {
-            console.log("Time up");
-            // unanswered++;
-            stop();
-            // finalScore();
-        }
-    }
+    // });
+
+    // function runTimer() {
+    //     intervalId = setInterval(countdown, 1000);
+    // };
+
+    // function stop() {
+    //     clearInterval(intervalId);
+    // }
+
+    // //function to check answer and add onclick to answers
+    // function buttonClick() {
+    //     $(".answer-button").on("click", function () {
+
+    //         checkAnswers();
+    //     });
+    // };
 
 
-    //function to check for correct answer
-    function checkAnswers(clickedID, question) {
+    // //function to run the question timer
+    // function countdown() {
+    //     time--;
+    //     $("#time-remaining").text("Time Remaining: " + time);
+    //     if (time === 0) {
+    //         console.log("Time up");
+    //         // unanswered++;
+    //         stop();
+    //         // finalScore();
+    //     }
+    // }
 
-    }
+
+    // //function to check for correct answer
+    // function checkAnswers(clickedID, question) {
+
+    // }
 
 
 
@@ -182,4 +232,4 @@ $(document).ready(function () {
 
 
 
-});
+}});
