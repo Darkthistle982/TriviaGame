@@ -72,17 +72,36 @@ $(document).ready(function () {
     var win = 0;
     var lose = 0;
     var unanswered = 0;
-    var time = 60;
+    var time = 30;
     var intervalId;
+    
+    //set up divs to contain our info
+    var rightDiv = $("<div class='randAns'></div>");
+    var timerDiv = $("<div class='countdown'><h3></h3></div>");
+    var questionDiv = $("<div class='question'><h3></h3></div>");
+    var answerDiv = $("<div class='answers'></div>");
 
-    //function to reset game
+    //object keys to return questions in order
+    var keys = Object.keys(questions);
+    var key = keys[n];
+    var n = 0;
+
+    //function to setup and restart game
     function reset() {
         win = 0;
         lose = 0;
         unanswered = 0;
-        time = 60;
+        n = 0;
+        key = keys[n];
         $("#start-button").show();
-        $("#start-here").show()
+        $("#start-here").show();
+        
+        var reset = function() {
+            time = 30;
+            $(".rightAns").empty();
+            $(".rightAns").remove();
+            $
+        }
     }
 
     //function to start game on button click
@@ -97,7 +116,7 @@ $(document).ready(function () {
 
     });
 
-    function runTimer(callback) {
+    function runTimer() {
         intervalId = setInterval(countdown, 1000);
     };
 
@@ -105,28 +124,14 @@ $(document).ready(function () {
         clearInterval(intervalId);
     }
 
-    //show question one
-    // function displayQuestionOne() {
-    //     runTimer();
-    //     $("#question").text(questions.one.question);
-
-    //     for (i = 0; i < 4; i++) {
-    //         $("#answers").append("<li>" + questions.one.answers[i]);
-    //     };
-
-    //      $("#answers").on("click", function () {
-    //       var selected = $(this).text();
-    //       console.log(selected);
-    //      });
-    // };
-
     //function to check answer and add onclick to answers
-    function checkAnswers() {
-        $("<button>").on("click", function () {
-            console.log("clicked");
-    });
-};
-    
+    function buttonClick() {
+        $(".answer-button").on("click", function () {
+           
+            checkAnswers();
+        });
+    };
+
     //function to show questions
     function showQuestion(question) {
         var newQuestionDiv = $("<div class='display-4'>");
@@ -134,6 +139,7 @@ $(document).ready(function () {
         $(newQuestionDiv).text(question.question);
         for (let i = 0; i < 4; i++) {
             $("#question-block").append("<button class='answer-button btn btn-danger btn-lg m-1'>" + question.answers[i] + "</button>");
+
         }
     }
 
@@ -143,15 +149,18 @@ $(document).ready(function () {
         $("#time-remaining").text("Time Remaining: " + time);
         if (time === 0) {
             console.log("Time up");
-            unanswered++;
+            // unanswered++;
             stop();
+            // finalScore();
         }
     }
 
 
+    //function to check for correct answer
+    function checkAnswers(clickedID, question) {
 
+    }
 
-checkAnswers();
 
 
 
