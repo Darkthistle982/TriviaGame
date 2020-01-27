@@ -74,11 +74,11 @@ $(document).ready(function () {
     var unanswered = 0;
     var time = 30;
     var intervalId;
-    
+
     //set up divs to contain our info
     var rightDiv = $("<div class='randAns'></div>");
     var timerDiv = $("<div class='countdown'><h3></h3></div>");
-    var questionDiv = $("<div class='question'><h3></h3></div>");
+    var questionDiv = $("<div class='question display-4'></div>");
     var answerDiv = $("<div class='answers'></div>");
 
     //object keys to return questions in order
@@ -95,13 +95,36 @@ $(document).ready(function () {
         key = keys[n];
         $("#start-button").show();
         $("#start-here").show();
-        
-        var reset = function() {
+
+        var reset = function () {
             time = 30;
             $(".rightAns").empty();
             $(".rightAns").remove();
-            $
+            $("#time-remaining").append(timerDiv);
+            $(".countdown h3").html("Time Remaining: " + time);
+            $("#question-block").append(questionDiv);
+            $("#question-block").append(answerDiv);
         }
+        reset();
+
+        //function to show questions
+        function showQuestion(question) {
+            $(".question display-4").html(questions[key].question);
+
+            for (var i = 0; i < questions[key].answers.length; i++) {
+                $(".answers").append("<button class='answer btn btn-danger btn-lg m-1'>" +questions[key].answers[i] + "</button>");
+            }
+
+        //     var newQuestionDiv = $("<div class='display-4'>");
+        //     $("#question-block").append(newQuestionDiv);
+        //     $(newQuestionDiv).text(question.question);
+        //     for (let i = 0; i < 4; i++) {
+        //         $("#question-block").append("<button class='answer-button btn btn-danger btn-lg m-1'>" + question.answers[i] + "</button>");
+
+        //     }
+        // }
+
+
     }
 
     //function to start game on button click
@@ -127,21 +150,11 @@ $(document).ready(function () {
     //function to check answer and add onclick to answers
     function buttonClick() {
         $(".answer-button").on("click", function () {
-           
+
             checkAnswers();
         });
     };
 
-    //function to show questions
-    function showQuestion(question) {
-        var newQuestionDiv = $("<div class='display-4'>");
-        $("#question-block").append(newQuestionDiv);
-        $(newQuestionDiv).text(question.question);
-        for (let i = 0; i < 4; i++) {
-            $("#question-block").append("<button class='answer-button btn btn-danger btn-lg m-1'>" + question.answers[i] + "</button>");
-
-        }
-    }
 
     //function to run the question timer
     function countdown() {
