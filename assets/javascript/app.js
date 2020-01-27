@@ -97,6 +97,7 @@ $(document).ready(function () {
         unanswered = 0;
         n = 0;
         key = keys[n];
+        currentQuestion = 0;
         $("#question-block").empty();
 
         var reset = function () {
