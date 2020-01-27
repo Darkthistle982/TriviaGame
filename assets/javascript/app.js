@@ -103,7 +103,7 @@ $(document).ready(function () {
             time = 30;
             $(".rightAns").empty();
             $(".rightAns").remove();
-            // $("#image").remove();
+            // $("#image").empty();
             $("#time-remaining").append(timerDiv);
             $(".countdown h3").html("Time Remaining: " + time);
             $("#question-block").append(questionDiv);
