@@ -71,7 +71,7 @@ $(document).ready(function () {
     //array to help me iterate and insert images
     var imgArray = ["question1", "question2", "question3", "question4", "question5", "question6", "question7", "question8", "question9", "question10", "question11", "question12", "question13"];
     var currentQuestion = 0;
-    
+
     var win = 0;
     var lose = 0;
     var unanswered = 0;
@@ -103,6 +103,7 @@ $(document).ready(function () {
             time = 30;
             $(".rightAns").empty();
             $(".rightAns").remove();
+            // $("#image").remove();
             $("#time-remaining").append(timerDiv);
             $(".countdown h3").html("Time Remaining: " + time);
             $("#question-block").append(questionDiv);
@@ -129,7 +130,7 @@ $(document).ready(function () {
                     $(answerDiv).remove();
                     $("#correct-answer").append(rightDiv);
                     $(".rightAns").text("That's Correct!!");
-                    $("#image").html("<img src = ")
+                    $("#image").html('<img src = ".assets/images/' + imgArray[currentQuestion] + '" width = "400px">');
                     win++;
                 } else {
                     clearInterval(counter);
