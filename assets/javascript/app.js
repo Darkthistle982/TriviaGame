@@ -73,7 +73,6 @@ $(document).ready(function () {
     var lose = 0;
     var unanswered = 0;
     var time = 30;
-    var intervalId;
 
     //set up divs to contain our info
     var rightDiv = $("<div class='rightAns'></div>");
@@ -86,7 +85,6 @@ $(document).ready(function () {
     var key = keys[n];
     var n = 0;
 
-    
     //function to setup and restart game
     function reset() {
         $("#start-button").hide("slow");
@@ -154,7 +152,7 @@ $(document).ready(function () {
         
         showQuestion();
         
-        var counter = setInterval(count, 500);
+        var counter = setInterval(count, 1000);
         
         //show time remaining for each question
         function count() {
@@ -191,7 +189,7 @@ $(document).ready(function () {
         
         //timer for the message after you choose your answer
         function countReset() {
-            counter = setInterval(count, 500);
+            counter = setInterval(count, 1000);
         }
         
         //showthe final score screen
@@ -204,7 +202,7 @@ $(document).ready(function () {
     };
     
     //function to start game on button click
-    $("#start-button").on("click", ".start", reset);
+    $(document).on("click", "#start-button", reset);
     // $("#start-button").show();
     // $("#start-here").show();
 });
