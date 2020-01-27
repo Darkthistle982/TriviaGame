@@ -77,7 +77,7 @@ $(document).ready(function () {
     //set up divs to contain our info
     var rightDiv = $("<div class='rightAns'></div>");
     var timerDiv = $("<div class='countdown'><h3></h3></div>");
-    var questionDiv = $("<div class='question'><h1></h1></div>");
+    var questionDiv = $("<div class='question'><h1></h1></div><br>");
     var answerDiv = $("<div class='answers'></div>");
 
     //object keys to return questions in order
@@ -143,9 +143,9 @@ $(document).ready(function () {
                 if (checkForLast()) {
                     finalScore();
                 } else {
-                    setTimeout(countReset, 5 * 1000);
-                    setTimeout(reset, 5 * 1000);
-                    setTimeout(showQuestion, 5 * 1000);
+                    setTimeout(countReset, 3 * 1000);
+                    setTimeout(reset, 3 * 1000);
+                    setTimeout(showQuestion, 3 * 1000);
                 }
             });
         }
@@ -173,9 +173,9 @@ $(document).ready(function () {
                 if (checkForLast()) {
                     finalScore();
                 } else {
-                    setTimeout(countReset, 5 * 1000);
-                    setTimeout(reset, 5 * 1000);
-                    setTimeout(showQuestion, 5 * 1000);
+                    setTimeout(countReset, 3 * 1000);
+                    setTimeout(reset, 3 * 1000);
+                    setTimeout(showQuestion, 3 * 1000);
                 }
             }
         }
