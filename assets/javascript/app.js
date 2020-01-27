@@ -77,7 +77,7 @@ $(document).ready(function () {
     //set up divs to contain our info
     var rightDiv = $("<div class='rightAns'></div>");
     var timerDiv = $("<div class='countdown'><h3></h3></div>");
-    var questionDiv = $("<div class='question'><h3></h3></div>");
+    var questionDiv = $("<div class='question'><h1></h1></div>");
     var answerDiv = $("<div class='answers'></div>");
 
     //object keys to return questions in order
@@ -108,7 +108,7 @@ $(document).ready(function () {
 
         //function to show questions
         function showQuestion() {
-            $(".question h3").html(questions[key].question);
+            $(".question h1").html(questions[key].question);
             
             for (var i = 0; i < questions[key].answers.length; i++) {
                 $(".answers").append("<button class='answer btn btn-danger btn-lg m-1'>" + questions[key].answers[i] + "</button>");
