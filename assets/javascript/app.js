@@ -71,6 +71,9 @@ $(document).ready(function () {
     //array to help me iterate and insert images
     var imgArray = ["question1", "question2", "question3", "question4", "question5", "question6", "question7", "question8", "question9", "question10", "question11", "question12", "question13"];
     var currentQuestion = 0;
+    
+    //variable for the background music element
+    var music = document.getElementById("background-music");
 
     var win = 0;
     var lose = 0;
@@ -215,5 +218,6 @@ $(document).ready(function () {
     };
     
     //function to start game on button click
-    $(document).on("click", "#start-button", reset);
+    $(document).on("click", "#start-button", reset,);
+    music.play();
 });
