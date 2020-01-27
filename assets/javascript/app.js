@@ -186,63 +186,15 @@ $(document).ready(function () {
                 }
             }
         }
-        
-        //     var newQuestionDiv = $("<div class='display-4'>");
-        //     $("#question-block").append(newQuestionDiv);
-        //     $(newQuestionDiv).text(question.question);
-        //     for (let i = 0; i < 4; i++) {
-        //         $("#question-block").append("<button class='answer-button btn btn-danger btn-lg m-1'>" + question.answers[i] + "</button>");
 
-        //     }
-        // }
+        function checkForLast() {
+            if (key === undefined) {
+                return true;
+            }
+            return false;
+        }
 
-
-    // }
-
-
-    // });
-
-    // function runTimer() {
-    //     intervalId = setInterval(countdown, 1000);
-    // };
-
-    // function stop() {
-    //     clearInterval(intervalId);
-    // }
-
-    // //function to check answer and add onclick to answers
-    // function buttonClick() {
-    //     $(".answer-button").on("click", function () {
-
-    //         checkAnswers();
-    //     });
-    // };
-
-
-    // //function to run the question timer
-    // function countdown() {
-    //     time--;
-    //     $("#time-remaining").text("Time Remaining: " + time);
-    //     if (time === 0) {
-    //         console.log("Time up");
-    //         // unanswered++;
-    //         stop();
-    //         // finalScore();
-    //     }
-    // }
-
-
-    // //function to check for correct answer
-    // function checkAnswers(clickedID, question) {
-
-    // }
-
-
-
-
-
-
-
-
-
-}});
+        //timer for the message after you choose your answer
+        function countReset() {
+            counter = setInterval(count, 500);
+        }
