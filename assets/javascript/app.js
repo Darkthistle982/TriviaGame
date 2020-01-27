@@ -94,7 +94,7 @@ $(document).ready(function () {
         unanswered = 0;
         n = 0;
         key = keys[n];
-        
+
         var reset = function () {
             time = 30;
             $(".rightAns").empty();
@@ -109,11 +109,11 @@ $(document).ready(function () {
         //function to show questions
         function showQuestion() {
             $(".question h1").html(questions[key].question);
-            
+
             for (var i = 0; i < questions[key].answers.length; i++) {
                 $(".answers").append("<button class='answer btn btn-danger btn-lg m-1'>" + questions[key].answers[i] + "</button>");
             }
-            
+
             $(".answers button").on("click", function () {
                 var selected = $(this).text();
                 //if then to check question correctness
@@ -138,7 +138,7 @@ $(document).ready(function () {
                 }
                 n++;
                 key = keys[n];
-                
+
                 //checking to see if there are more questions left
                 if (checkForLast()) {
                     finalScore();
@@ -149,16 +149,16 @@ $(document).ready(function () {
                 }
             });
         }
-        
+
         showQuestion();
-        
+
         var counter = setInterval(count, 1000);
-        
+
         //show time remaining for each question
         function count() {
             time--;
             $(".countdown h3").html("Time Remaining: " + time);
-            
+
             if (time < 1) {
                 clearInterval(counter);
                 $(timerDiv).remove();
@@ -179,30 +179,30 @@ $(document).ready(function () {
                 }
             }
         }
-        
+
         function checkForLast() {
             if (key === undefined) {
                 return true;
             }
             return false;
         }
-        
+
         //timer for the message after you choose your answer
         function countReset() {
             counter = setInterval(count, 1000);
         }
-        
+
         //showthe final score screen
         function finalScore() {
             $(".rightAns").remove();
             $("#question-block").prepend("<h2>Unanswered: " + unanswered + "</h2>");
             $("#question-block").prepend("<h2>Incorrect: " + lose + "</h2>");
             $("#question-block").prepend("<h2>Correct: " + win + "</h2>");
+            $("#start-button").show();
+            $("#start-here").show();
         }
     };
     
     //function to start game on button click
     $(document).on("click", "#start-button", reset);
-    // $("#start-button").show();
-    // $("#start-here").show();
 });
