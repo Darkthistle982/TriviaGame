@@ -141,9 +141,8 @@ $(document).ready(function () {
                     $("#correct-answer").append(rightDiv);
                     $(".rightAns").text("That's Correct!!");
                     $("#image").append(movieImg);
-                    $(".img").html("<img src = 'assets/images/" + imgArray[currentQuestion] + ".jpg' width = '400px'>");
+                    $(".img").html("<img src = 'assets/images/" + imgArray[currentQuestion] + ".jpg' class='mx-auto' width = '400px'>");
                     win++;
-                    console.log(imgArray[currentQuestion]);
                     currentQuestion++;
                 } else {
                     clearInterval(counter);
@@ -154,9 +153,8 @@ $(document).ready(function () {
                     $("#correct-answer").append(rightDiv);
                     $(".rightAns").text("Nope! The correct answer was: " + questions[key].correct);
                     $("#image").append(movieImg);
-                    $(".img").html("<img src = 'assets/images/" + imgArray[currentQuestion] +  ".jpg' width = '400px'>");
+                    $(".img").html("<img src = 'assets/images/" + imgArray[currentQuestion] +  ".jpg' class='mx-auto' width = '400px'>");
                     lose++;
-                    console.log(imgArray[currentQuestion]);
                     currentQuestion++;
                 }
                 n++;
@@ -164,7 +162,7 @@ $(document).ready(function () {
 
                 //checking to see if there are more questions left
                 if (checkForLast()) {
-                    finalScore();
+                    setTimeout(finalScore, 5 * 1000);
                 } else {
                     setTimeout(countReset, 3 * 1000);
                     setTimeout(reset, 3 * 1000);
@@ -194,7 +192,7 @@ $(document).ready(function () {
                 key = keys[n];
 
                 if (checkForLast()) {
-                    finalScore();
+                    setTimeout(finalScore, 5 * 1000);
                 } else {
                     setTimeout(countReset, 3 * 1000);
                     setTimeout(reset, 3 * 1000);
