@@ -18,12 +18,12 @@ $(document).ready(function () {
             correct: "Dreamer"
         },
         four: {
-            question: "What was the name of Dr. Frankenstein's assistant in the 1931 film, Frankenstein?",
+            question: "What was the name of Dr. Frankensteins assistant in the 1931 film, Frankenstein?",
             answers: ["Fritz", "Igor", "Johan", "Frederick"],
             correct: "Fritz"
         },
         five: {
-            question: "In the 1984 horror classic, A Nightmare on Elm Street, we see one of the major film appearances by which actor?",
+            question: "In the 1984 horror classic, A Nightmare on Elm Street, we see one of the first major film appearances by which actor?",
             answers: ["Kevin Bacon", "Keifer Sutherland", "Johnny Depp", "Tom Cruise"],
             correct: "Johnny Depp"
         },
@@ -33,32 +33,32 @@ $(document).ready(function () {
             correct: "Billy"
         },
         seven: {
-            question: "What was the official credited name for the monster in the 1954 classic, the Creature from the Black Lagoon?",
+            question: "What was the official, credited name for the monster in the 1954 classic, the Creature from the Black Lagoon?",
             answers: ["Fish-man", "Gill-man", "Lagoon-beast", "Water-beast"],
             correct: "Gill-man"
         },
         eight: {
-            question: "In the 1974 slasher film, Texas Chainsaw Massacre, what is the name of the saw weilding killer?",
+            question: "In the 1974 slasher film, the Texas Chainsaw Massacre, what is the name of the chainsaw weilding killer?",
             answers: ["The Hitchhiker", "Drayton Sawyer", "Leatherface", "Candyman"],
             correct: "Leatherface"
         },
         nine: {
-            question: "In the 1968 classic, Night of the Living Dead, what is the name of the lead actress, famously taunted in a graveyard by her brother right before he meets his untimely end?",
+            question: "In the 1968 classic, Night of the Living Dead, what is the name of the lead actress' character; famously taunted in a graveyard by her brother right before he meets his untimely end?",
             answers: ["Helen", "Karen", "Judy", "Barbara"],
             correct: "Barbara"
         },
         ten: {
-            question: "In the 2008 horror anthology, Trick 'r Treat, the antagonist, Sam, punishes those who don't follow the rules of Halloween. Which one is NOT a rule of Halloween?",
+            question: "In the 2008 horror anthology, Trick 'r Treat, the antagonist, Sam, punishes those who don't follow the rules of Halloween. Which one of these is NOT a rule of Halloween?",
             answers: ["Never prank a decorated home", "Always give candy to trick-or-treaters", "Respect the dead", "Always wear a costume"],
             correct: "Never prank a decorated home"
         },
         eleven: {
-            question: "In the 1931 monster movie classic, Dracula, Bela Lugosi portrayed his most famous role of his lifetime. What was the name of the insect eating toady who does the vampires bidding?",
+            question: "In the 1931 monster movie classic, Dracula, Bela Lugosi portrayed one of the most famous roles of his lifetime. What was the name of the insect eating toady who does Draculas bidding?",
             answers: ["John", "Dr. Seward", "Martin", "Renfield"],
             correct: "Renfield"
         },
         twelve: {
-            question: "In the 1999 remake of the Castle Films classic, House on Haunted Hill, the guests are being payed to stay in what haunted building instead of a house?",
+            question: "In the 1999 remake of the Castle Films, House on Haunted Hill, the guests are being payed to stay overnight in what haunted building instead of a house?",
             answers: ["Schoolhouse", "Mental Asylum", "Hospital", "Hotel"],
             correct: "Mental Asylum"
         },
