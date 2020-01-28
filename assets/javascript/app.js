@@ -134,6 +134,7 @@ $(document).ready(function () {
                 //if then to check question correctness
                 if (selected === questions[key].correct) {
                     clearInterval(counter);
+                    $("#success")[0].play();
                     $(timerDiv).remove();
                     $(questionDiv).remove();
                     $(".answers button").remove();
@@ -146,6 +147,7 @@ $(document).ready(function () {
                     currentQuestion++;
                 } else {
                     clearInterval(counter);
+                    $('#fail')[0].play();
                     $(timerDiv).remove();
                     $(questionDiv).remove();
                     $(".answers button").remove();
