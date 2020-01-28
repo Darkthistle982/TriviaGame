@@ -71,6 +71,7 @@ $(document).ready(function () {
     //array to help me iterate and insert images
     var imgArray = ["question1", "question2", "question3", "question4", "question5", "question6", "question7", "question8", "question9", "question10", "question11", "question12", "question13"];
     var currentQuestion = 0;
+    var movieImg = $("<div class='img'></div>");
     
     //variable for the background music element
     var music = document.getElementById("background-music");
@@ -139,10 +140,11 @@ $(document).ready(function () {
                     $(answerDiv).remove();
                     $("#correct-answer").append(rightDiv);
                     $(".rightAns").text("That's Correct!!");
-                    $("#image").html("<img src = 'assets/images/'" + imgArray[currentQuestion] +  "width = '400px'>");
+                    $("#image").append(movieImg);
+                    $(".img").html("<img src = 'assets/images/" + imgArray[currentQuestion] + ".jpg' width = '400px'>");
                     win++;
+                    console.log(imgArray[currentQuestion]);
                     currentQuestion++;
-                    console.log(currentQuestion);
                 } else {
                     clearInterval(counter);
                     $(timerDiv).remove();
@@ -151,10 +153,11 @@ $(document).ready(function () {
                     $(answerDiv).remove();
                     $("#correct-answer").append(rightDiv);
                     $(".rightAns").text("Nope! The correct answer was: " + questions[key].correct);
-                    $("#image").html("<img src = 'assets/images/'" + imgArray[currentQuestion] +  "width = '400px'>");
+                    $("#image").append(movieImg);
+                    $(".img").html("<img src = 'assets/images/" + imgArray[currentQuestion] +  ".jpg' width = '400px'>");
                     lose++;
+                    console.log(imgArray[currentQuestion]);
                     currentQuestion++;
-                    console.log(currentQuestion);
                 }
                 n++;
                 key = keys[n];
