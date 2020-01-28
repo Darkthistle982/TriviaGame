@@ -5,6 +5,7 @@ Horror Movie Trivia Game
 * Application rules/Operation
 * Tech used
 * Details of application
+* Acknowledgements
 
 ## Application rules/Operation
 
@@ -28,3 +29,8 @@ Credit to Music from https://filmmusic.io
 * The timers are automated. The user cannot stop or start them.
 * The application moves between question with or without user input until it has asked all of them.
 * The bulk of the itmes on the screen are generated with Jquery and injected into the DOM as needed.
+
+
+## Acknowledgements
+
+A very big thank you to Ben Provow. Having an experienced programmer to ask questions and help you understand the logic you are trying to untangle was invaluable and I would not have been able to complete this project without his guidance and encouragement.
