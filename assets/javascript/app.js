@@ -91,6 +91,11 @@ $(document).ready(function () {
     var key = keys[n];
     var n = 0;
 
+    //function to start site audio
+    function backgroundMusic () {
+        $("#start-button").on("click", music.play());
+    }
+
     //function to setup and restart game
     function reset() {
         $("#start-button").hide("slow");
@@ -134,7 +139,7 @@ $(document).ready(function () {
                     $(answerDiv).remove();
                     $("#correct-answer").append(rightDiv);
                     $(".rightAns").text("That's Correct!!");
-                    $("#image").html('<img src = ".assets/images/' + imgArray[currentQuestion] + '" width = "400px">');
+                    // $("#image").html('<img src = ".assets/images/' + imgArray[currentQuestion] + '" width = "400px">');
                     win++;
                     currentQuestion++;
                 } else {
@@ -145,7 +150,7 @@ $(document).ready(function () {
                     $(answerDiv).remove();
                     $("#correct-answer").append(rightDiv);
                     $(".rightAns").text("Nope! The correct answer was: " + questions[key].correct);
-                    $("#image").html('<img src = ".assets/images/' + imgArray[currentQuestion] + '" width = "400px">');
+                    // $("#image").html('<img src = ".assets/images/' + imgArray[currentQuestion] + '" width = "400px">');
                     lose++;
                     currentQuestion++;
                 }
@@ -164,7 +169,7 @@ $(document).ready(function () {
         }
 
         showQuestion();
-
+        backgroundMusic();
         var counter = setInterval(count, 1000);
 
         //show time remaining for each question
@@ -218,6 +223,5 @@ $(document).ready(function () {
     };
     
     //function to start game on button click
-    $(document).on("click", "#start-button", reset,);
-    music.play();
+    $(document).on("click", "#start-button", reset);
 });
