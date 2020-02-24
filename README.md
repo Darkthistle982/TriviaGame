@@ -19,6 +19,7 @@ This is an application that runs through a complex object populated with a serie
 * Javascript
 * JQuery
 * Google Fonts
+* Fontawesome
 * Audio track from Kevin MacLeod at Incompetech.com
 
 Credit to Music from https://filmmusic.io
