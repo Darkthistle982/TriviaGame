@@ -5,6 +5,7 @@ Horror Movie Trivia Game
 * Application rules/Operation
 * Tech used
 * Details of application
+* Screenshots
 * Link to Live Project
 * Acknowledgements
 
@@ -31,6 +32,23 @@ Credit to Music from https://filmmusic.io
 * The timers are automated. The user cannot stop or start them.
 * The application moves between question with or without user input until it has asked all of them.
 * The bulk of the itmes on the screen are generated with Jquery and injected into the DOM as needed.
+
+## Screenshots
+
+Main Page: 
+![Main Page](/assets/images/mainPage.jpg)
+
+Quiz in Progress: 
+![In Progress](/assets/images/inProgress.jpg)
+
+Correct Answer: 
+![Correct](/assets/images/correctAnswer.jpg)
+
+Incorrect Answer: 
+![Incorrect](/assets/images/wrongAnswer.jpg)
+
+Results:
+![Results](/assets/images/resultsScreen.jpg)
 
 ### Link to Live Project: https://darkthistle982.github.io/TriviaGame/
 
